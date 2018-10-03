@@ -13,72 +13,61 @@ const path = require('path');
 const Cldr = require('cldrjs');
 
 const locales = [
-  'am',           // Amharic
-  'ar',           // Arabic
-  'bg',           // Bulgarian
-  'bn',           // Bengali
-  'ca',           // Catalan
-  'cs',           // Czech
-  'da',           // Danish
-  'de',           // German
-  'el',           // Greek
-  'en',           // English (United States)
-  'en-GB',        // English (Great Britain)
-  'es',           // Spanish
-  'es-419',       // Spanish (Latin America & Caribbean)
-  'et',           // Estonian
-  'fa',           // Persian
-  'fi',           // Finnish
-  'fil',          // Filipino
-  'fr',           // French
-  'gu',           // Gujarati
-  'he',           // Hebrew
-  'hi',           // Hindi
-  'hr',           // Croatian
-  'hu',           // Hungarian
-  'id',           // Indonesian
-  'it',           // Italian
-  'ja',           // Japanese
-  'kn',           // Kannada
-  'ko',           // Korean
-  'lt',           // Lithuanian
-  'lv',           // Latvian
-  'ml',           // Malayalam
-  'mr',           // Marathi
-  'ms',           // Malay
-  'nb',           // Norwegian
-  'nl',           // Dutch
-  'pl',           // Polish
-  'pt',           // Portuguese
-  'pt-PT',        // Portuguese (Portugal)
-  'ro',           // Romanian
-  'ru',           // Russian
-  'sk',           // Slovak
-  'sl',           // Slovenian
-  'sr',           // Serbian
-  'sv',           // Swedish
-  'sw',           // Swahili
-  'ta',           // Tamil
-  'te',           // Telugu
-  'th',           // Thai
-  'tr',           // Turkish
-  'uk',           // Ukrainian
-  'vi',           // Vietnamese
-  'zh',           // Chinese
-  'zh-Hans',      // Chinese (Simplified)
-  'zh-Hant',      // Chinese (Traditional)
+  'AT',
+  'DE',
+  'PL',
+  'BE',
+  'GR',
+  'PT',
+  'BG',
+  'HU',
+  'RO',
+  'HR',
+  'IE',
+  'SK',
+  'CY',
+  'IT',
+  'SI',
+  'CZ',
+  'LV',
+  'ES',
+  'DK',
+  'LT',
+  'SE',
+  'EE',
+  'LU',
+  'GB',
+  'FI',
+  'MT',
+  'FR',
+  'NL',
+  'IS',
+  'LI',
+  'NO',
+  'AU',
+  'MX',
+  'BR',
+  'SG',
+  'CA',
+  'ZA',
+  'HK',
+  'KR',
+  'IN',
+  'CH',
+  'JP',
+  'US'
 ];
 
 const currencies = [
-  'CAD',          // Canadian Dollar
-  'EUR',          // Euro
-  'GBP',          // British Pound
-  'USD',          // US Dollar
+  'EUR',
+  'GBP',
+  'USD',
+  'PLN',
 ];
 
 const files = ['ca-gregorian', 'currencies', 'dateFields', 'numbers', 'timeZoneNames'];
 const supplemental = ['currencyData', 'likelySubtags', 'numberingSystems', 'ordinals', 'plurals', 'timeData', 'weekData'];
-const cldrs = locales.map(x => new Cldr(x));
+const cldrs = locales.map(x => new Cldr(x.toLocaleLowerCase()));
 const languages = cldrs.map(x => x.attributes.language);
 
 function removeUnusedLanguages(dict) {
